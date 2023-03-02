@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="booklook.Views.BookPage"
+             xmlns:models="clr-namespace:booklook.Models"
+             xmlns:views="clr-namespace:booklook.Views"
+             Title="BookLook">
+    <ContentPage.BindingContext>
+        <models:BookViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Margin="10, 15" Spacing="10">
+        <Image Source="{Binding ImageSource}" HeightRequest="300"/>
+        <Label Text="{Binding Title}" FontSize="25" FontAttributes="Bold"/>
+        <Label Text="{Binding Authors}"/>
+        <Label Text="{Binding Isbn13, StringFormat='ISBN13: {0}'}"/>
+        <Label Text="{Binding Isbn10, StringFormat='ISBN10: {0}'}"/>
+        <Label Text="{Binding ReleaseDate}"/>
+        <Label Text="{Binding BookLink}" TextColor="CornflowerBlue">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer 
+                    Command="{Binding OpenUrlCommand}"
+                    CommandParameter="{Binding BookLink}"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <Button 
+            Text="UPLOAD" 
+            Clicked="UploadBook" 
+            IsVisible="{Binding ReverseIsLoading}"
+            IsEnabled="{Binding ReverseIsLoading}"
+            Margin="0,20,0,0" 
+         />
+        <ActivityIndicator 
+            IsRunning="{Binding IsLoading}" 
+            HeightRequest="50" 
+            Margin="0,20,0,0" 
+         />
+    </VerticalStackLayout>
+</ContentPage>

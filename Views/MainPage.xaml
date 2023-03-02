@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="booklook.Views.MainPage"
+             xmlns:models="clr-namespace:booklook.Models"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
+             xmlns:Helpers="clr-namespace:booklook.Helpers"
+             Title="BookLook">
+    <ContentPage.BindingContext>
+        <models:MainViewModel />
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <zxing:CameraBarcodeReaderView  
+            IsDetecting="{Binding IsScanning}"
+            x:Name="cameraBarcodeReaderView"
+            BarcodesDetected="BarcodeDetected"
+        />
+    </Grid>
+</ContentPage>
