@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="booklook.Views.MainPage"
-             xmlns:models="clr-namespace:booklook.Models"
+             xmlns:viewmodels="clr-namespace:booklook.ViewModels"
              xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
              xmlns:Helpers="clr-namespace:booklook.Helpers"
              Title="BookLook">
     <ContentPage.BindingContext>
-        <models:MainViewModel />
+        <viewmodels:MainViewModel />
     </ContentPage.BindingContext>
     <Grid>
         <Grid.RowDefinitions>

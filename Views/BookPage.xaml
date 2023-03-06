@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="booklook.Views.BookPage"
-             xmlns:models="clr-namespace:booklook.Models"
+             xmlns:viewmodels="clr-namespace:booklook.ViewModels"
              xmlns:views="clr-namespace:booklook.Views"
              Title="BookLook">
     <ContentPage.BindingContext>
-        <models:BookViewModel />
+        <viewmodels:BookViewModel />
     </ContentPage.BindingContext>
 
     <VerticalStackLayout Margin="10, 15" Spacing="10">

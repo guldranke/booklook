@@ -1,5 +1,6 @@
 using booklook.Helpers;
 using booklook.Models;
+using booklook.ViewModels;
 using ZXing.Net.Maui;
 
 namespace booklook.Views;

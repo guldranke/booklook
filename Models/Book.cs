@@ -1,4 +1,7 @@
-﻿namespace booklook.Models {
+﻿using booklook.ViewModels;
+
+namespace booklook.Models
+{
     public class Book {
         public string Title { get; set; } = string.Empty;
         public string Authors { get; set; } = string.Empty;
