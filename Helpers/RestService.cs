@@ -1,4 +1,5 @@
 ﻿using booklook.Models;
+using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
@@ -7,6 +8,10 @@ namespace booklook.Helpers {
     public class RestService {
         readonly HttpClient _client;
         readonly JsonSerializerOptions _serializerOptions;
+
+        public string BasePath = "http://192.168.0.12:5001";
+        public string Endpoint = "/api/books";
+        public string ApiUrl => BasePath + Endpoint;
 
         public RestService() {
             _client = new HttpClient();
@@ -34,9 +39,9 @@ namespace booklook.Helpers {
               { "location", location }
             };
 
-            StringContent request = new StringContent(JsonSerializer.Serialize(values), Encoding.UTF8, "application/json");
-            // 192.168.0.11:5001 -> local asp.net core web api server
-            HttpResponseMessage response = await _client.PostAsync("http://192.168.0.11:5001/api/books", request);
+            StringContent request = new(JsonSerializer.Serialize(values), Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _client.PostAsync(ApiUrl, request);
             Debug.WriteLine(response);
             return response;
         }
